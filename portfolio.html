@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Anass Riad - Portfolio & Projects</title>
+  <!-- Import Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <!-- Include Chart.js Library -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    /* Reset and Base Styles */
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #f4f7fa;
+      color: #333;
+      line-height: 1.6;
+    }
+    /* Navigation */
+    nav {
+      background: #ffffff;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      padding: 1rem;
+    }
+    nav ul li { margin: 0 15px; }
+    nav ul li a {
+      text-decoration: none;
+      color: #0077cc;
+      font-weight: bold;
+      transition: color 0.3s ease;
+    }
+    nav ul li a:hover { color: #005fa3; }
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    }
+    /* Header */
+    header { text-align: center; margin-bottom: 2rem; }
+    header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      color: #0077cc;
+      margin-bottom: 0.5rem;
+    }
+    header h3 {
+      font-size: 1.5rem;
+      color: #555;
+      margin-bottom: 1rem;
+    }
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 0.25rem 0;
+    }
+    .contact-info a { color: #0077cc; text-decoration: none; }
+    .contact-info a:hover { text-decoration: underline; }
+    /* Sections */
+    section { margin-bottom: 2rem; }
+    section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: #0077cc;
+      border-bottom: 2px solid #0077cc;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    section h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.75rem;
+      color: #005fa3;
+      margin: 1rem 0 0.5rem;
+    }
+    section p { margin-bottom: 1rem; }
+    ul { list-style: none; padding-left: 1.5rem; }
+    ul li {
+      margin-bottom: 0.5rem;
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    ul li:before {
+      content: "●";
+      color: #0077cc;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+    a { color: #0077cc; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    /* Video and Chart Styles */
+    .video-container {
+      position: relative;
+      padding-bottom: 56.25%;
+      padding-top: 25px;
+      height: 0;
+      margin: 1rem auto;
+      max-width: 500px;
+    }
+    .video-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+    .chart-container {
+      width: 100%;
+      max-width: 600px;
+      height: 300px;
+      margin: 1rem auto;
+    }
+    .analytics-insight {
+      margin-top: 1rem;
+      padding: 1rem;
+      border-top: 1px solid #e0e0e0;
+    }
+    /* Project Card Styles */
+    .project {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      background: #fafafa;
+    }
+    .guide-link { font-style: italic; margin-bottom: 1rem; }
+    /* Divider */
+    hr { margin: 2rem 0; border: none; border-top: 1px solid #ddd; }
+    /* Responsive */
+    @media (max-width: 768px) {
+      .container { margin: 1rem; padding: 1rem; }
+      nav ul { flex-direction: column; }
+      nav ul li { margin: 10px 0; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation -->
+  <nav>
+    <ul>
+        <li><a href="index.html">Home</a></li>
+      <li><a href="bio.html">Bio</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
+    </ul>
+  </nav>
+  
+  <div class="container">
+    <!-- Header Section -->
+    <header>
+      <h1>Anass Riad</h1>
+      <h3>Data Analyst & IT Learner</h3>
+      <div class="contact-info">
+        <p><strong>Email:</strong> anassriad445@gmail.com</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/anassriad" target="_blank">github.com/anassriad</a></p>
+      </div>
+    </header>
+    
+    <!-- Portfolio Section: Chrome Extension Project -->
+    <section id="portfolio">
+      <h2>Portfolio</h2>
+      <h3>Team Project: Chrome Extension for Breaking Barriers</h3>
+      <p>
+        Our team project is a Chrome extension designed to break communication barriers for deaf users, especially deaf students. The extension provides real-time captioning and integrates gesture/sign recognition technologies to convert spoken language into on-screen text and visual cues.
+      </p>
+      <div class="video-container">
+        <iframe src="https://www.youtube.com/embed/klAlR4xsYxc" title="Team Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <ul>
+        <li>
+          <a href="https://www.canva.com/design/DAGb6ITvWGk/mBQ5evOt2-HHFsyTSaygpw/edit?utm_content=DAGb6ITvWGk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">
+            View our Project Slide Deck
+          </a>
+        </li>
+      </ul>
+      
+      <!-- Divider and Data Section placed after the slide deck link -->
+      <hr>
+      <h4>Data-Driven Impact</h4>
+      <p>
+        <strong>Real Data Highlights:</strong> Research indicates that many deaf students perform roughly two grade levels below their hearing peers in online learning settings (&#8203;:contentReference[oaicite:2]{index=2}). Approximately 40% of deaf students report difficulty following online lectures due to the lack of real-time captions. Our extension aims to boost comprehension by over 30%, potentially increasing understanding from 60% to 78%.
+      </p>
+      <div class="chart-container">
+        <canvas id="chromeExtensionChart"></canvas>
+      </div>
+    </section>
+    
+    <!-- Projects Section (Other Projects) -->
+    <section id="projects">
+      <h2>Other Projects</h2>
+      
+      <!-- Psychology Chatbot Project -->
+      <div class="project">
+        <h3><a href="https://github.com/anassriad/psychology-chatbot" target="_blank">Psychology Chatbot</a></h3>
+        <p class="guide-link">
+          Guide: GitHub link: 
+          <a href="https://github.com/anassriad/psychology-chatbot" target="_blank">
+            https://github.com/anassriad/psychology-chatbot
+          </a>
+        </p>
+        <p>
+          A judgment-free, AI-powered mental health assistant that offers personalized insights into psychological disorders using natural language processing.
+        </p>
+        <p><strong>Technologies used:</strong> Node.js, Express, OpenAI, JavaScript, NLP</p>
+        <div class="analytics-insight">
+          <p>
+            <strong>Analytical Insight:</strong> With increasing mental health needs, research shows a 47% rise in interest for chatbots since 2020. 
+            <a href="https://psychiatryonline.org" target="_blank">PSYCHIATRYONLINE.ORG</a>
+          </p>
+          <div class="chart-container">
+            <canvas id="psychChatbotChart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Daily Quotes Reminder App Project -->
+      <div class="project">
+        <h3><a href="https://github.com/anassriad/daily-quotes-reminder-app" target="_blank">Daily Quotes Reminder App</a></h3>
+        <p class="guide-link">
+          Guide: GitHub link: 
+          <a href="https://github.com/anassriad/daily-quotes-reminder-app" target="_blank">
+            https://github.com/anassriad/daily-quotes-reminder-app
+          </a>
+        </p>
+        <p>
+          An app that delivers daily motivational quotes to inspire users, boost productivity, and improve mood.
+        </p>
+        <p><strong>Technologies used:</strong> React, JavaScript, CSS</p>
+        <div class="analytics-insight">
+          <p>
+            <strong>Analytical Insight:</strong> Motivational reminders have been shown to improve productivity by 20-30%.
+            <a href="https://apps.apple.com" target="_blank">APPS.APPLE.COM</a>
+          </p>
+          <div class="chart-container">
+            <canvas id="dailyQuotesChart"></canvas>
+          </div>
+        </div>
+      </div>
+
+      <!-- water scarcity project -->
+       <div class="project">
+      <section id="water-scarcity">
+        <h2>Water Scarcity Analytics in Morocco</h2>
+        <p>
+          Water scarcity is a critical issue in Morocco, affecting agriculture, urban supply, and ecosystems. Recent data indicates a gradual decrease in per capita water availability driven by climate change and increased demand.
+        </p>
+        <a href="https://www.canva.com/design/DAGX2JSvZBA/9O4uDk5_sEmxGulZ29c53w/edit?ui=eyJIIjp7IkEiOnRydWV9fQ" target="_blank">
+            View the Project Slide Deck</a><br/>
+        <hr/>
+           <p> <strong>Analytical Insight:</strong> </p>
+        <div class="chart-container">
+          <canvas id="waterScarcityChart"></canvas>
+        </div>
+      </section>
+      </div>
+      <!-- Marathon Morocco Project -->
+      <div class="project">
+        <h3><a href="https://github.com/anassriad/marathon-morocco" target="_blank">Marathon Morocco</a></h3>
+        <p class="guide-link">
+          Guide: GitHub link: 
+          <a href="https://github.com/anassriad/marathon-morocco" target="_blank">
+            https://github.com/anassriad/marathon-morocco
+          </a>
+        </p>
+        <p>
+          A platform for organizing and tracking marathon events in Morocco, designed to enhance the experience for organizers and participants.
+        </p>
+        <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, Node.js</p>
+        <div class="analytics-insight">
+          <p>
+            <strong>Analytical Insight:</strong> With a steady 15% annual growth in marathon participation, our platform meets a growing need among fitness enthusiasts.
+          </p>
+          <div class="chart-container">
+            <canvas id="marathonChart"></canvas>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+    
+  </div>
+  
+  <!-- Chart.js Scripts -->
+  <script>
+    // Chrome Extension Graph
+    const chromeExtensionCtx = document.getElementById('chromeExtensionChart').getContext('2d');
+    new Chart(chromeExtensionCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Without Extension', 'With Extension'],
+        datasets: [{
+          label: 'Comprehension (%)',
+          data: [60, 78], // Represents a 30% improvement (e.g., from 60% to 78%)
+          backgroundColor: ['rgba(255, 99, 132, 0.5)', 'rgba(75, 192, 192, 0.5)'],
+          borderColor: ['rgba(255, 99, 132, 1)', 'rgba(75, 192, 192, 1)'],
+          borderWidth: 1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            max: 100,
+            title: { display: true, text: 'Comprehension (%)' }
+          }
+        }
+      }
+    });
+    
+    // Psychology Chatbot Chart
+    const psychChatbotCtx = document.getElementById('psychChatbotChart').getContext('2d');
+    new Chart(psychChatbotCtx, {
+      type: 'line',
+      data: {
+        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Usage (%)',
+          data: [5, 10, 15, 22, 22, 22],
+          fill: false,
+          borderColor: 'rgba(0, 119, 204, 1)',
+          tension: 0.1
+        },{
+          label: 'Interest (%)',
+          data: [10, 20, 30, 47, 47, 47],
+          fill: false,
+          borderColor: 'rgba(255, 99, 132, 1)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Percentage (%)' }
+          }
+        }
+      }
+    });
+    
+    // Daily Quotes Reminder App Chart
+    const dailyQuotesCtx = document.getElementById('dailyQuotesChart').getContext('2d');
+    new Chart(dailyQuotesCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Daily Quotes', 'App2', 'App3'],
+        datasets: [{
+          label: 'User Ratings',
+          data: [4.5, 4.2, 4.8],
+          backgroundColor: 'rgba(0, 119, 204, 0.5)',
+          borderColor: 'rgba(0, 119, 204, 1)',
+          borderWidth: 1,
+          yAxisID: 'y'
+        },{
+          label: 'Downloads (in thousands)',
+          data: [5, 3, 7],
+          backgroundColor: 'rgba(255, 159, 64, 0.5)',
+          borderColor: 'rgba(255, 159, 64, 1)',
+          borderWidth: 1,
+          yAxisID: 'y1'
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            position: 'left',
+            title: { display: true, text: 'Ratings' }
+          },
+          y1: {
+            beginAtZero: true,
+            position: 'right',
+            grid: { drawOnChartArea: false },
+            title: { display: true, text: 'Downloads (in thousands)' }
+          }
+        }
+      }
+    });
+    // Water Scarcity Chart (Line Chart)
+    const waterScarcityCtx = document.getElementById('waterScarcityChart').getContext('2d');
+    const waterScarcityChart = new Chart(waterScarcityCtx, {
+      type: 'line',
+      data: {
+        labels: ['2010', '2012', '2014', '2016', '2018', '2020', '2022'],
+        datasets: [{
+          label: 'Water Availability (m³ per capita)',
+          data: [600, 580, 560, 540, 520, 500, 480],
+          fill: false,
+          borderColor: 'rgba(0, 150, 136, 1)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: false,
+            title: { display: true, text: 'm³ per capita' }
+          }
+        }
+      }
+    });
+    // Marathon Morocco Chart
+    const marathonCtx = document.getElementById('marathonChart').getContext('2d');
+    new Chart(marathonCtx, {
+      type: 'line',
+      data: {
+        labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+        datasets: [{
+          label: 'Marathon Participation Rate (%)',
+          data: [30, 32, 35, 38, 40, 42, 45, 50, 55, 60, 65],
+          fill: false,
+          borderColor: 'rgba(0, 119, 204, 1)',
+          tension: 0.1
+        }]
+      },
+      options: {
+        responsive: true,
+        scales: {
+          y: {
+            beginAtZero: true,
+            title: { display: true, text: 'Participation Rate (%)' }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>
