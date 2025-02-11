@@ -1,483 +1,142 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anass Riad - Data Analyst & IT Learner</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anass Riad - Welcome</title>
   <!-- Import Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset and Base Styles */
+    /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
+    html, body {
+      height: 100%;
       font-family: 'Lato', sans-serif;
       background: #f4f7fa;
       color: #333;
-      line-height: 1.6;
+      scroll-behavior: smooth; /* Enables smooth scrolling */
+      overflow-x: hidden;
     }
-    
-    /* Navigation */
-    nav {
-      background: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    /* Landing Section Styling */
+    .landing {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      text-align: center;
+      position: relative;
+      padding: 20px;
     }
+    .landing h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3.5rem;
+      color: #0077cc;
+      margin-bottom: 1rem;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+    }
+    .landing p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 0.5s;
+    }
+    /* Navigation Styles */
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
-      padding: 1rem;
-    }
-    nav ul li {
-      margin: 0 15px;
+      gap: 20px;
+      opacity: 0;
+      animation: fadeIn 2s forwards;
+      animation-delay: 1s;
     }
     nav ul li a {
       text-decoration: none;
+      font-size: 1.2rem;
       color: #0077cc;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      border: 2px solid transparent;
+      padding: 0.5rem 1rem;
+      transition: all 0.3s ease;
     }
     nav ul li a:hover {
+      border-color: #0077cc;
       color: #005fa3;
     }
-    
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
+    /* Scroll Down Indicator */
+    .scroll-down {
+      position: absolute;
+      bottom: 20px;
+      font-size: 1rem;
+      color: #0077cc;
+      cursor: pointer;
+      animation: bounce 2s infinite;
+    }
+    /* Additional Main Content Section */
+    .main-content {
+      padding: 50px 20px;
       background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    
-    /* Header */
-    header {
       text-align: center;
-      margin-bottom: 2rem;
     }
-    header h1 {
+    .main-content h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
+      font-size: 2.5rem;
       color: #0077cc;
-      margin-bottom: 0.5rem;
-    }
-    header h3 {
-      font-size: 1.5rem;
-      color: #555;
       margin-bottom: 1rem;
     }
-    .contact-info p {
-      font-size: 1.1rem;
-      margin: 0.25rem 0;
+    .main-content p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 0 auto;
+      line-height: 1.6;
     }
-    .contact-info a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Sections */
-    section {
-      margin-bottom: 2rem;
-    }
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #0077cc;
-      border-bottom: 2px solid #0077cc;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
-    }
-    section h3 {
-      font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      color: #005fa3;
-      margin: 1rem 0 0.5rem;
-    }
-    section p {
-      margin-bottom: 1rem;
-    }
-    
-    ul {
-      list-style: none;
-      padding-left: 1.5rem;
-    }
-    ul li {
-      margin-bottom: 0.5rem;
-      position: relative;
-      padding-left: 1.5rem;
-    }
-    ul li:before {
-      content: "●";
-      color: #0077cc;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-    a {
-      color: #0077cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    
-    /* Chart Styles */
-    .chart-container {
-      width: 100%;
-      max-width: 600px;
-      height: 300px;
-      margin: 1rem auto;
-    }
-    
-    /* Analytics Insight Block */
-    .analytics-insight {
-      margin-top: 1rem;
-      padding: 1rem;
-      border-top: 1px solid #e0e0e0;
-    }
-    
-    /* Projects Section */
-    #projects .project {
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-    #projects .project h3 {
-      margin-bottom: 0.25rem;
-      color: #005fa3;
-    }
-    #projects .project p {
-      margin-bottom: 0.5rem;
-    }
-    .guide-link {
-      font-style: italic;
-      margin-bottom: 1rem;
-    }
-    
-    /* Responsive iframe for embedded video */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%; /* 16:9 aspect ratio */
-      padding-top: 25px;
-      height: 0;
-      margin: 1rem auto; /* center and add vertical spacing */
-      max-width: 500px;  /* limits the width of the video */
-    }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    
-    @media (max-width: 768px) {
-      .container {
-        margin: 1rem;
-        padding: 1rem;
+    /* Animations */
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
       }
-      nav ul {
-        flex-direction: column;
-      }
-      nav ul li {
-        margin: 10px 0;
-      }
+    }
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="#bio">Bio</a></li>
-      <li><a href="#portfolio">Portfolio</a></li>
-      <li><a href="#projects">Projects</a></li>
-      <li><a href="#elevator-pitch">Elevator Pitch</a></li>
-    </ul>
-  </nav>
-  
-  <div class="container">
-    <!-- Header Section -->
-    <header>
-      <h1>Anass Riad</h1>
-      <h3>Data Analyst & IT Learner </h3>
-      <div class="contact-info">
-        <p><strong>Email:</strong> anassriad445@gmail.com</p>
-        <p><strong>Phone:</strong> 0697922675</p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/anassriad" target="_blank">github.com/anassriad</a></p>
-      </div>
-    </header>
-    
-    <!-- Bio Section -->
-    <section id="bio">
-      <h2>Bio</h2>
-      <p>I combine a strong background in law with cutting-edge technical training to deliver innovative web solutions and data-driven insights. My academic journey—earning a Bachelor's in Private Law from FSJES Souissi, Mohammed V University—paired with specialized training in frontend development, IT, and data analysis through Udacity and the ALX Programme, has equipped me with a unique blend of analytical and creative problem-solving skills.</p>
-      <h3>Education and Training</h3>
+  <div class="landing">
+    <h1>Welcome to Anass Riad's World</h1>
+    <p>Discover the fusion of data, law, and technology. Dive in to explore more!</p>
+    <nav>
       <ul>
-        <li><strong>Bachelor's in Private Law</strong> – FSJES Souissi, Mohammed V University, Rabat (2023)</li>
-        <li><strong>High School Diploma</strong> (2018)</li>
-        <li><strong>Frontend Development Training</strong> – Udacity (2019)</li>
-        <li><strong>Call Center Training</strong> – Zej Service (2024)</li>
-        <li>
-          <strong>ALX – IT & Software Engineering Pathway</strong>: Web Development, Salesforce, AWS, Data, Software Engineering.<br>
-          <em>Project: Creation of a Chrome Extension</em> – Project Leader responsible for UX research and data analysis.
-        </li>
-        <li><strong>Robotics Training</strong>: C/C++ Programming, Electronic Component Work</li>
+        <li><a href="bio.html">Bio</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
       </ul>
-      <h3>Professional Experience</h3>
-      <ul>
-        <li><strong>Team Member</strong> – McDonald's (2024)</li>
-        <li><strong>Customer Service Representative</strong> – Zej Service Call Center (2024)</li>
-      </ul>
-      <h3>Skills</h3>
-      <ul>
-        <li>Private Law</li>
-        <li>Web Development (HTML, CSS, JavaScript)</li>
-        <li>Salesforce</li>
-        <li>Data Analysis</li>
-        <li>Robotics & Programming (C, C++)</li>
-        <li>Customer Service & Communication</li>
-      </ul>
-    </section>
-    
-    <!-- Portfolio Section -->
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <h3>Team Project: Chrome Extension</h3>
-      <div class="video-container">
-        <iframe src="https://www.youtube.com/embed/klAlR4xsYxc" title="Team Project Video" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <ul>
-        <li><a href="https://www.canva.com/design/DAGb6ITvWGk/mBQ5evOt2-HHFsyTSaygpw/edit?utm_content=DAGb6ITvWGk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton" target="_blank">View our Project Slide Deck </a></li>
-      </ul>
-    </section>
-    
-    <!-- Projects Section -->
-    <section id="projects">
-      <h2>Projects</h2>
-      
-      <!-- Psychology Chatbot Project -->
-      <div class="project">
-        <h3><a href="https://github.com/anassriad/psychology-chatbot" target="_blank">Psychology Chatbot</a></h3>
-        <p class="guide-link">Guide: Here is the GitHub link: <a href="https://github.com/anassriad/psychology-chatbot" target="_blank">https://github.com/anassriad/psychology-chatbot</a></p>
-        <p>A judgment-free AI-powered mental health assistant designed to provide insights into psychological disorders. The chatbot uses natural language processing to offer personalized support, helping users understand and manage mental health challenges.</p>
-        <p><strong>Technologies used:</strong> Node.js, Express, OpenAI, JavaScript, NLP</p>
-        <div class="analytics-insight">
-          <p><strong>Analytical Insight:</strong> The demand for mental health support has surged, especially during the COVID-19 pandemic. A 2021 national survey found that 22% of adults had used a mental health chatbot, with nearly 60% starting during the pandemic. Additionally, 47% expressed interest in using one if needed. <a href="https://psychiatryonline.org" target="_blank">PSYCHIATRYONLINE.ORG</a></p>
-          <div class="chart-container">
-            <canvas id="psychChatbotChart"></canvas>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Daily Quotes Reminder App Project -->
-      <div class="project">
-        <h3><a href="https://github.com/anassriad/daily-quotes-reminder-app" target="_blank">Daily Quotes Reminder App</a></h3>
-        <p class="guide-link">Guide: Here is the GitHub link: <a href="https://github.com/anassriad/daily-quotes-reminder-app" target="_blank">https://github.com/anassriad/daily-quotes-reminder-app</a></p>
-        <p>An app designed to deliver daily motivational quotes to inspire users. The app encourages positivity and helps individuals stay focused on their goals by providing thoughtful reminders that improve mindset and productivity.</p>
-        <p><strong>Technologies used:</strong> React, JavaScript, CSS</p>
-        <div class="analytics-insight">
-          <p><strong>Analytical Insight:</strong> Motivational apps have gained popularity as tools for personal development. For instance, the "Motivation - Daily Quotes" app has garnered positive reviews, with users highlighting its role in providing daily inspiration and improving mindset. <a href="https://apps.apple.com" target="_blank">APPS.APPLE.COM</a></p>
-          <div class="chart-container">
-            <canvas id="dailyQuotesChart"></canvas>
-          </div>
-        </div>
-      </div>
-      
-      <!-- Marathon Morocco Project -->
-      <div class="project">
-        <h3><a href="https://github.com/anassriad/marathon-morocco" target="_blank">Marathon Morocco</a></h3>
-        <p class="guide-link">Guide: Here is the GitHub link: <a href="https://github.com/anassriad/marathon-morocco" target="_blank">https://github.com/anassriad/marathon-morocco</a></p>
-        <p>A platform for organizing and tracking marathon events in Morocco, designed to enhance the marathon experience for both organizers and participants. The website allows users to register for events, track their progress, and interact with the marathon community.</p>
-        <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, Node.js</p>
-        <div class="analytics-insight">
-          <p><strong>Analytical Insight:</strong> The global rise in marathon participation underscores the need for platforms that organize and track marathon events. Integrating data analytics can enhance training programs and race performance, catering to the growing community of marathon enthusiasts.</p>
-          <div class="chart-container">
-            <canvas id="marathonChart"></canvas>
-          </div>
-        </div>
-      </div>
-      
-    </section>
-    
-    <!-- Water Scarcity Analytics Section -->
-    <section id="water-scarcity">
-      <h2>Water Scarcity Analytics in Morocco</h2>
-      <p>
-        Water scarcity is a critical issue in Morocco, affecting agriculture, urban supply, and ecosystems. Recent data indicates a gradual decrease in per capita water availability driven by climate change and increased demand.
-      </p>
-      <div class="chart-container">
-        <canvas id="waterScarcityChart"></canvas>
-      </div>
-    </section>
-    
-    <!-- Elevator Pitch Section (Last Section) -->
-    <section id="elevator-pitch">
-      <h2>Elevator Pitch</h2>
-      <p>
-        I am deeply obsessed with data—its patterns, insights, and potential to drive real change. My passion for analytics extends across multiple domains, from 
-        <strong>sports and health</strong> to <strong>psychology and law</strong>, all unified by one goal: <strong>leveraging data to improve human experiences</strong>.
-      </p>
-      <p>
-        As an <strong>athlete and marathon enthusiast</strong>, I am actively enhancing my 
-        <a href="https://github.com/anassriad/marathon-morocco" target="_blank">Marathon Morocco</a> platform by integrating advanced 
-        <strong>data analytics</strong> to optimize training programs, race performance, and even dietary approaches like 
-        <strong>keto for endurance athletes</strong>.
-      </p>
-      <p>
-        Beyond physical health, I recognize the <strong>mental dimension of human performance</strong>. That’s why I built my 
-        <a href="https://github.com/anassriad/psychology-chatbot" target="_blank">AI-powered psychology chatbot</a>, designed to analyze and 
-        <strong>deepen our understanding of mental health</strong>. My ultimate ambition is to develop a <strong>truly intelligent AI</strong>—one that understands 
-        the human mind better than ever before.
-      </p>
-      <p>
-        My work in <strong><a href="https://www.canva.com/design/DAGX2JSvZBA/9O4uDk5_sEmxGulZ29c53w/edit?ui=eyJIIjp7IkEiOnRydWV9fQ" target="_blank">water scarcity analytics</a></strong> in Morocco, as well as my initiative to <strong>enhance family and business law</strong> through data-driven 
-        policies, reflects my legal background and my belief in <strong>evidence-based decision-making</strong>. With a foundation in law and a mind wired for analytics, 
-        I bridge the gap between regulation, society, and <strong>data science-driven solutions</strong>.
-      </p>
-      <p>
-        At the core of all my projects is one principle: <strong>data is the key to unlocking better decisions, smarter systems, and a more optimized world</strong>.
-      </p>
-      <p><strong>Let’s connect and build something that reshapes the future through data.</strong></p>
-    </section>
-    
+    </nav>
+    <!-- When clicked, the scroll down indicator will take the user to the next section -->
+    <div class="scroll-down" id="scrollDown">Scroll Down</div>
   </div>
-  
-  <!-- Chart.js Library -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <!-- Main Content Section: Additional content appears here -->
+  <div class="main-content" id="mainContent">
+    <h2>Explore More</h2>
+    <p>
+      Here you can find more about my work, projects, and vision.
+      Use the navigation above to dive into the details of my Bio, Portfolio, and Elevator Pitch.
+      Thank you for visiting!
+    </p>
+  </div>
+
   <script>
-    // Psychology Chatbot Chart (Line Chart with two datasets)
-    const psychChatbotCtx = document.getElementById('psychChatbotChart').getContext('2d');
-    const psychChatbotChart = new Chart(psychChatbotCtx, {
-      type: 'line',
-      data: {
-        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
-        datasets: [{
-          label: 'Usage (%)',
-          data: [5, 10, 15, 22, 22, 22],
-          fill: false,
-          borderColor: 'rgba(0, 119, 204, 1)',
-          tension: 0.1
-        },
-        {
-          label: 'Interest (%)',
-          data: [10, 20, 30, 47, 47, 47],
-          fill: false,
-          borderColor: 'rgba(255, 99, 132, 1)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: 'Percentage (%)' }
-          }
-        }
-      }
-    });
-    
-    // Daily Quotes Reminder App Chart (Dual-axis Bar Chart)
-    const dailyQuotesCtx = document.getElementById('dailyQuotesChart').getContext('2d');
-    const dailyQuotesChart = new Chart(dailyQuotesCtx, {
-      type: 'bar',
-      data: {
-        labels: ['Daily Quotes', 'App2', 'App3'],
-        datasets: [{
-          label: 'User Ratings',
-          data: [4.5, 4.2, 4.8],
-          backgroundColor: 'rgba(0, 119, 204, 0.5)',
-          borderColor: 'rgba(0, 119, 204, 1)',
-          borderWidth: 1,
-          yAxisID: 'y'
-        }, {
-          label: 'Downloads (in thousands)',
-          data: [5, 3, 7],
-          backgroundColor: 'rgba(255, 159, 64, 0.5)',
-          borderColor: 'rgba(255, 159, 64, 1)',
-          borderWidth: 1,
-          yAxisID: 'y1'
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            position: 'left',
-            title: { display: true, text: 'Ratings' }
-          },
-          y1: {
-            beginAtZero: true,
-            position: 'right',
-            grid: { drawOnChartArea: false },
-            title: { display: true, text: 'Downloads (in thousands)' }
-          }
-        }
-      }
-    });
-    
-    // Marathon Morocco Chart (Line Chart)
-    const marathonCtx = document.getElementById('marathonChart').getContext('2d');
-    const marathonChart = new Chart(marathonCtx, {
-      type: 'line',
-      data: {
-        labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
-        datasets: [{
-          label: 'Marathon Participation Rate (%)',
-          data: [30, 32, 35, 38, 40, 42, 45, 50, 55, 60, 65],
-          fill: false,
-          borderColor: 'rgba(0, 119, 204, 1)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: 'Participation Rate (%)' }
-          }
-        }
-      }
-    });
-    
-    // Water Scarcity Chart (Line Chart)
-    const waterScarcityCtx = document.getElementById('waterScarcityChart').getContext('2d');
-    const waterScarcityChart = new Chart(waterScarcityCtx, {
-      type: 'line',
-      data: {
-        labels: ['2010', '2012', '2014', '2016', '2018', '2020', '2022'],
-        datasets: [{
-          label: 'Water Availability (m³ per capita)',
-          data: [600, 580, 560, 540, 520, 500, 480],
-          fill: false,
-          borderColor: 'rgba(0, 150, 136, 1)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: false,
-            title: { display: true, text: 'm³ per capita' }
-          }
-        }
-      }
+    // If you want the scroll down indicator to scroll smoothly to the main content
+    document.getElementById('scrollDown').addEventListener('click', function() {
+      document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth' });
     });
   </script>
 </body>
