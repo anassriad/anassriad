@@ -250,6 +250,85 @@
     </section>
     
     <!-- Projects Section (Other Projects) -->
+     <!-- Add this right after the Chrome Extension project section and before "Other Projects" -->
+
+<section id="portfolio">
+  <!-- Previous Chrome Extension content remains the same -->
+  
+  <hr>
+  
+  <!-- Add Billionaire Dashboard Project here -->
+  <h3>Data Analytics Project: Billionaire Analysis Dashboard (2025)</h3>
+  <p>
+    Created an interactive Excel dashboard analyzing global billionaire wealth distribution and demographics. This comprehensive analysis provides insights into wealth patterns, industry concentrations, and demographic characteristics of the world's wealthiest individuals in 2025.
+  </p>
+  <p>
+    <strong>Key Dashboard Metrics:</strong>
+  </p>
+  <ul>
+    <li>Average Net Worth: $14,824 million across the dataset</li>
+    <li>Average Age: 56.47 years</li>
+    <li>Total Billionaires Analyzed: 129</li>
+    <li>Regional Distribution: APAC, EMEA, LATAM, NA</li>
+  </ul>
+  <p>
+    <a href="Billionaires Dashboard START.xlsx" target="_blank" download>Download Full Excel Dashboard</a>
+  </p>
+  
+  <p class="screenshot-guide">Click on the image to enlarge it for a better view.</p>
+  <div class="project-screenshots">
+    <img src="billionair.jpg" alt="Interactive Billionaire Analysis Dashboard" style="max-width: 100%; height: auto;">
+  </div>
+  
+  <div class="analytics-insight">
+    <p>
+      <strong>Key Findings:</strong> Analysis reveals technology and finance sectors dominate wealth concentration, with significant representation from APAC and EMEA regions. The dashboard enables dynamic filtering by region, gender, and self-made status, providing comprehensive insights into global wealth distribution patterns.
+    </p>
+    <div class="chart-container">
+      <canvas id="billionaireChart"></canvas>
+    </div>
+  </div>
+</section>
+
+<!-- Add this to the existing script section -->
+<script>
+// Billionaire Industry Distribution Chart
+const billionaireCtx = document.getElementById('billionaireChart')?.getContext('2d');
+if(billionaireCtx) {
+  new Chart(billionaireCtx, {
+    type: 'bar',
+    data: {
+      labels: ['Technology', 'Finance', 'Fashion & Retail', 'Automotive', 'Manufacturing', 'Food & Beverage', 'Energy', 'Healthcare'],
+      datasets: [{
+        label: 'Industry Distribution',
+        data: [1500000, 1000000, 500000, 400000, 400000, 300000, 250000, 200000],
+        backgroundColor: 'rgba(0, 119, 204, 0.6)',
+        borderColor: 'rgba(0, 119, 204, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          beginAtZero: true,
+          title: {
+            display: true,
+            text: 'Net Worth Distribution (Millions USD)'
+          }
+        }
+      },
+      plugins: {
+        title: {
+          display: true,
+          text: 'Wealth Distribution by Industry Sector'
+        }
+      }
+    }
+  });
+}
+</script>
+
     <section id="projects">
       <h2>Other Projects</h2>
       
