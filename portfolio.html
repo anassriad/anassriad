@@ -1,87 +1,159 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anass Riad - Portfolio & Projects</title>   
-  <!-- Import Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anass Riad - Portfolio & Projects</title>
+  <!-- Same fonts as the welcome and bio pages -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <!-- Include Chart.js Library -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <style>
-    /* Reset and Base Styles */
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Lato', sans-serif;
-      background: #f4f7fa;
-      color: #333;
-      line-height: 1.6;
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    /* Navigation */
-    nav {
-      background: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      color: #1e293b;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+    /* Header / Navigation (same as Bio page) */
+    header {
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
       z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
-      padding: 1rem;
+      gap: 2rem;
     }
-    nav ul li { margin: 0 15px; }
+    /* Remove default bullet styling for nav */
+    nav ul li:before {
+      content: none;
+    }
     nav ul li a {
       text-decoration: none;
-      color: #0077cc;
-      font-weight: bold;
-      transition: color 0.3s ease;
+      color: #0f172a;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
     }
-    nav ul li a:hover { color: #005fa3; }
-    /* Container */
+    nav ul li a:hover {
+      background: #e0f2fe;
+      color: #0ea5e9;
+    }
+    /* Main area */
+    main {
+      padding-top: 100px;
+      padding-bottom: 2rem;
+    }
+    /* Container styling similar to the Bio page’s dashboard */
     .container {
-      max-width: 1200px;
+      max-width: 1400px;
+      width: 95%;
       margin: 2rem auto;
-      background: #fff;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
       padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
     }
-    /* Header */
-    header { text-align: center; margin-bottom: 2rem; }
-    header h1 {
+    /* Bio Header (identical to your Bio page) */
+    .bio-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .bio-header h1 {
       font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: #0077cc;
-      margin-bottom: 0.5rem;
-    }
-    header h3 {
-      font-size: 1.5rem;
-      color: #555;
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
       margin-bottom: 1rem;
     }
-    .contact-info p { font-size: 1.1rem; margin: 0.25rem 0; }
-    .contact-info a { color: #0077cc; text-decoration: none; }
-    .contact-info a:hover { text-decoration: underline; }
-    /* Sections */
-    section { margin-bottom: 2rem; }
+    .bio-header h3 {
+      font-size: 1.5rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    .contact-info a {
+      color: #0ea5e9;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+    .contact-info a:hover {
+      color: #2563eb;
+    }
+    /* Section and text styling for each project */
+    section {
+      margin-bottom: 3rem;
+      padding: 0 1rem;
+    }
     section h2 {
       font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #0077cc;
-      border-bottom: 2px solid #0077cc;
+      font-size: 1.75rem;
+      color: #0ea5e9;
+      border-bottom: 2px solid #0ea5e9;
       padding-bottom: 0.5rem;
       margin-bottom: 1rem;
     }
     section h3 {
       font-family: 'Playfair Display', serif;
-      font-size: 1.75rem;
-      color: #005fa3;
-      margin: 1rem 0 0.5rem;
+      font-size: 1.5rem;
+      color: #2563eb;
+      margin-bottom: 0.5rem;
     }
-    section p { margin-bottom: 1rem; }
-    ul { list-style: none; padding-left: 1.5rem; }
+    section h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.25rem;
+      color: #2563eb;
+      margin: 1rem 0;
+    }
+    section p {
+      margin-bottom: 1rem;
+      line-height: 1.6;
+    }
+    ul {
+      list-style: none;
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
     ul li {
       margin-bottom: 0.5rem;
       position: relative;
@@ -89,55 +161,30 @@
     }
     ul li:before {
       content: "●";
-      color: #0077cc;
+      color: #0ea5e9;
       position: absolute;
       left: 0;
       top: 0;
     }
-    a { color: #0077cc; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    /* Video and Chart Styles */
-    .video-container {
-      position: relative;
-      padding-bottom: 56.25%;
-      padding-top: 25px;
-      height: 0;
-      margin: 1rem auto;
-      max-width: 500px;
+    a {
+      color: #0ea5e9;
+      text-decoration: none;
+      transition: color 0.3s ease;
     }
-    .video-container iframe {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
+    a:hover {
+      text-decoration: underline;
     }
+    /* Chart container with extra spacing */
     .chart-container {
-      width: 100%;
-      max-width: 600px;
-      height: 300px;
-      margin: 1rem auto;
-    }
-    .analytics-insight {
       margin-top: 1rem;
-      padding: 1rem;
-      border-top: 1px solid #e0e0e0;
+      margin-bottom: 2rem;
+      position: relative;
+      height: 300px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
     }
-    /* Project Card Styles */
-    .project {
-      margin-bottom: 1.5rem;
-      padding: 1rem;
-      border: 1px solid #e0e0e0;
-      border-radius: 8px;
-      background: #fafafa;
-    }
-    .guide-link { font-style: italic; margin-bottom: 1rem; }
-    .screenshot-guide {
-      font-style: italic;
-      margin-bottom: 0.5rem;
-      color: #555;
-    }
-    /* Screenshots Gallery */
+    /* Project screenshots */
     .project-screenshots {
       display: flex;
       flex-wrap: wrap;
@@ -145,33 +192,36 @@
       margin: 1rem 0;
     }
     .project-screenshots img {
-      max-width: 200px; /* increased from 180px */
+      max-width: 200px;
       cursor: pointer;
       border: 1px solid #ddd;
       border-radius: 4px;
-      transition: transform 0.2s ease;
+      transition: transform 0.3s ease;
     }
     .project-screenshots img:hover {
       transform: scale(1.05);
+      border-color: #0ea5e9;
     }
-    .live-link {
-      margin-top: 0.5rem;
-      font-weight: bold;
+    hr {
+      border: none;
+      border-top: 1px solid #e2e8f0;
     }
-    /* Divider */
-    hr { margin: 2rem 0; border: none; border-top: 1px solid #ddd; }
-    /* Modal Styles for Image Pop-Up */
+    /* Separator for projects */
+    .project-divider {
+      margin: 3rem 0;
+    }
+    /* Modal for image pop-up */
     .modal {
-      display: none; 
-      position: fixed; 
-      z-index: 2000; 
-      padding-top: 60px; 
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      padding-top: 60px;
       left: 0;
       top: 0;
-      width: 100%; 
-      height: 100%; 
-      overflow: auto; 
-      background-color: rgba(0,0,0,0.8); 
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: rgba(0,0,0,0.8);
     }
     .modal-content {
       margin: auto;
@@ -195,305 +245,257 @@
       text-decoration: none;
       cursor: pointer;
     }
-    /* Responsive */
     @media (max-width: 768px) {
-      .container { margin: 1rem; padding: 1rem; }
-      nav ul { flex-direction: column; }
-      nav ul li { margin: 10px 0; }
+      .container {
+        margin: 1rem;
+        padding: 1rem;
+      }
+      nav ul {
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav ul li {
+        margin: 10px 0;
+      }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="bio.html">Bio</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
-    </ul>
-  </nav>
-  
-  <div class="container">
-    <!-- Header Section -->
-    <header>
-      <h1>Anass Riad</h1>
-      <h3>Data Analyst & IT Learner</h3>
-      <div class="contact-info">
-        <p><strong>Email:</strong> anassriad445@gmail.com</p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/anassriad" target="_blank">github.com/anassriad</a></p>
-      </div>
-    </header>
-    
-    <!-- Portfolio Section: Chrome Extension Project -->
-    <section id="portfolio">
-      <h2>Portfolio</h2>
-      <h3>Team Project: Chrome Extension for Breaking Barriers</h3>
-      <p>
-        Our team project is a Chrome extension designed to break communication barriers for deaf users, especially deaf students. The extension provides real-time captioning and integrates gesture/sign recognition technologies to convert spoken language into on-screen text and visual cues.
-      </p>
-      <p>
-        <strong>Enhanced Project Description:</strong> In addition to its core functionality, our project is backed by data insights showing that many deaf students perform roughly two grade levels below their hearing peers in online learning environments. With about 40% of deaf students experiencing difficulties in following online lectures due to the absence of real-time captions, our solution aims to boost comprehension by over 30%—potentially increasing understanding from 60% to 78%.
-      </p>
-      <p>
-        <a href="SonnarSage_Team_Phase_2_Project.pdf" target="_blank" download>Download SonnarSage Team Phase 2 Project PDF</a>
-      </p>
-      
-      <hr>
-      <h4>Data-Driven Impact</h4>
-      <p>
-        <strong>Real Data Highlights:</strong> Research indicates that many deaf students perform roughly two grade levels below their hearing peers in online learning settings. Approximately 40% of deaf students report difficulty following online lectures due to the lack of real-time captions. Our extension aims to boost comprehension by over 30%, potentially increasing understanding from 60% to 78%.
-      </p>
-      <div class="chart-container">
-        <canvas id="chromeExtensionChart"></canvas>
-      </div>
-    </section>
-    
-    <!-- Projects Section (Other Projects) -->
-     <!-- Add this right after the Chrome Extension project section and before "Other Projects" -->
-
-<section id="portfolio">
-  <!-- Previous Chrome Extension content remains the same -->
-  
-  <hr>
-  
-  <!-- Add Billionaire Dashboard Project here -->
-  <h3>Data Analytics Project: Billionaire Analysis Dashboard (2025)</h3>
-  <p>
-    Created an interactive Excel dashboard analyzing global billionaire wealth distribution and demographics. This comprehensive analysis provides insights into wealth patterns, industry concentrations, and demographic characteristics of the world's wealthiest individuals in 2025.
-  </p>
-  <p>
-    <strong>Key Dashboard Metrics:</strong>
-  </p>
-  <ul>
-    <li>Average Net Worth: $14,824 million across the dataset</li>
-    <li>Average Age: 56.47 years</li>
-    <li>Total Billionaires Analyzed: 129</li>
-    <li>Regional Distribution: APAC, EMEA, LATAM, NA</li>
-  </ul>
-  <p>
-    <a href="Billionaires Dashboard START.xlsx" target="_blank" download>Download Full Excel Dashboard</a>
-  </p>
-  
-  <p class="screenshot-guide">Click on the image to enlarge it for a better view.</p>
-  <div class="project-screenshots">
-    <img src="billionair.jpg" alt="Interactive Billionaire Analysis Dashboard" style="max-width: 100%; height: auto;">
-  </div>
-  
-  <div class="analytics-insight">
-    <p>
-      <strong>Key Findings:</strong> Analysis reveals technology and finance sectors dominate wealth concentration, with significant representation from APAC and EMEA regions. The dashboard enables dynamic filtering by region, gender, and self-made status, providing comprehensive insights into global wealth distribution patterns.
-    </p>
-    <div class="chart-container">
-      <canvas id="billionaireChart"></canvas>
+  <!-- Navigation header identical to Bio page -->
+  <header>
+    <div class="nav-container">
+      <div class="logo">Anass Riad</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
+        </ul>
+      </nav>
     </div>
-  </div>
-</section>
-
-<!-- Add this to the existing script section -->
-<script>
-// Billionaire Industry Distribution Chart
-const billionaireCtx = document.getElementById('billionaireChart')?.getContext('2d');
-if(billionaireCtx) {
-  new Chart(billionaireCtx, {
-    type: 'bar',
-    data: {
-      labels: ['Technology', 'Finance', 'Fashion & Retail', 'Automotive', 'Manufacturing', 'Food & Beverage', 'Energy', 'Healthcare'],
-      datasets: [{
-        label: 'Industry Distribution',
-        data: [1500000, 1000000, 500000, 400000, 400000, 300000, 250000, 200000],
-        backgroundColor: 'rgba(0, 119, 204, 0.6)',
-        borderColor: 'rgba(0, 119, 204, 1)',
-        borderWidth: 1
-      }]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          beginAtZero: true,
-          title: {
-            display: true,
-            text: 'Net Worth Distribution (Millions USD)'
-          }
-        }
-      },
-      plugins: {
-        title: {
-          display: true,
-          text: 'Wealth Distribution by Industry Sector'
-        }
-      }
-    }
-  });
-}
-</script>
-
-    <section id="projects">
-      <h2>Other Projects</h2>
-      <!-- beverage sales dashboard -->
-       <!-- Add this after the Billionaire Dashboard Project -->
-
-<hr>
-
-<h3>Data Analytics Project: Beverage Sales Dashboard (2025)</h3>
-<p>
-  Designed an interactive Power BI dashboard to analyze beverage sales performance across different states and months. This dashboard provides insights into revenue distribution, units sold, and price per unit for major beverage brands.
-</p>
-<p>
-  <strong>Key Metrics:</strong>
-</p>
-<ul>
-  <li><strong>Total Revenue:</strong> 1.92M</li>
-  <li><strong>Units Sold:</strong> 3.98M</li>
-  <li><strong>Average Price per Unit:</strong> 0.47</li>
-</ul>
-
-<p>
-  <a href="https://drive.google.com/file/d/1AaOrn-0f2eWsbz6T_VRusct2bEDXEKmk/view?usp=drive_link" target="_blank">View Full Power BI Report</a>
-</p>
-
-<p class="screenshot-guide">Click on the image to enlarge it for a better view.</p>
-<div class="project-screenshots">
-  <img src="beverage sales.jpg" alt="Interactive Beverage Sales Dashboard" style="max-width: 100%; height: auto;">
-</div>
-
-<p>
-  <strong>Key Insights:</strong> The dashboard showcases beverage sales trends over time, regional revenue distribution, and price analysis. The interactive filters allow dynamic exploration of different beverage brands and time periods, helping businesses optimize sales strategies.
-</p>
-
-      <!-- SAKINA AI Project -->
-      <div class="project">
-        <h3><a href="https://github.com/anassriad/psychology-chatbot" target="_blank">SAKINA AI</a></h3>
-        <p class="guide-link">
-          Guide: GitHub link: 
-          <a href="https://github.com/anassriad/psychology-chatbot" target="_blank">
-            https://github.com/anassriad/psychology-chatbot
-          </a>
+  </header>
+  <main>
+    <div class="container">
+      <!-- Page Header (using Bio header style) -->
+      <div class="bio-header">
+        <h1>Anass Riad</h1>
+        <h3>Data Analyst &amp; Insights Specialist</h3>
+        <div class="contact-info">
+          <a href="mailto:anassriad445@gmail.com">📧 anassriad445@gmail.com</a>
+          <a href="https://github.com/anassriad" target="_blank">📚 github.com/anassriad</a>
+        </div>
+      </div>
+      
+      <!-- Project: Chrome Extension -->
+      <section id="portfolio">
+        <h2>Portfolio</h2>
+        <h3>Team Project: Chrome Extension for Breaking Barriers</h3>
+        <p>
+          Our team project is a Chrome extension designed to break communication barriers for deaf users, especially deaf students. The extension provides real-time captioning and integrates gesture/sign recognition technologies to convert spoken language into on-screen text and visual cues.
         </p>
         <p>
-          SAKINA AI is a unique fusion of psychology and art. This AI-powered tool offers personalized mental health insights using natural language processing. With the innovative "See Your Mood" button, it analyzes the last 10 messages exchanged between the user and the bot to create a custom mood painting in the style of Salvador Dalí.
+          <strong>Enhanced Project Description:</strong> In addition to its core functionality, our project is backed by data insights showing that many deaf students perform roughly two grade levels below their hearing peers in online learning environments. With about 40% of deaf students experiencing difficulties in following online lectures due to the absence of real-time captions, our solution aims to boost comprehension by over 30%—potentially increasing understanding from 60% to 78%.
         </p>
-        <p><strong>Technologies used:</strong> Node.js, Express, OpenAI, JavaScript, NLP</p>
-        <p class="screenshot-guide">Click on the images to enlarge them for a better view.</p>
-        <!-- Screenshot Gallery for SAKINA AI -->
+        <p>
+          <a href="SonnarSage_Team_Phase_2_Project.pdf" target="_blank" download>Download SonnarSage Team Phase 2 Project PDF</a>
+        </p>
+        <hr class="project-divider">
+        <h4>Data-Driven Impact</h4>
+        <p>
+          <strong>Real Data Highlights:</strong> Research indicates that many deaf students perform roughly two grade levels below their hearing peers in online learning settings. Approximately 40% of deaf students report difficulty following online lectures due to the lack of real-time captions. Our extension aims to boost comprehension by over 30%, potentially increasing understanding from 60% to 78%.
+        </p>
+        <div class="chart-container">
+          <canvas id="chromeExtensionChart"></canvas>
+        </div>
+      </section>
+      
+      <!-- Project: Billionaire Dashboard -->
+      <section id="billionaire-dashboard">
+        <hr class="project-divider">
+        <h3>Data Analytics Project: Billionaire Analysis Dashboard (2025)</h3>
+        <p>
+          Created an interactive Excel dashboard analyzing global billionaire wealth distribution and demographics. This comprehensive analysis provides insights into wealth patterns, industry concentrations, and demographic characteristics of the world's wealthiest individuals in 2025.
+        </p>
+        <p>
+          <strong>Key Dashboard Metrics:</strong>
+        </p>
+        <ul>
+          <li>Average Net Worth: $14,824 million across the dataset</li>
+          <li>Average Age: 56.47 years</li>
+          <li>Total Billionaires Analyzed: 129</li>
+          <li>Regional Distribution: APAC, EMEA, LATAM, NA</li>
+        </ul>
+        <p>
+          <a href="Billionaires Dashboard START.xlsx" target="_blank" download>Download Full Excel Dashboard</a>
+        </p>
+        <p class="screenshot-guide">Click on the image to enlarge it for a better view.</p>
         <div class="project-screenshots">
-          <img src="FRONTWEB.jpg" alt="SAKINA AI">
-          <img src="mood_image1.png" alt="SAKINA AI">
-          <img src="mood_image2.png" alt="SAKINA AI">
-          <img src="mood_image3.png" alt="SAKINA AI">
-          <img src="mood_image4.png" alt="SAKINA AI">
-          <img src="mood_image5.png" alt="SAKINA AI">
+          <img src="billionair.jpg" alt="Interactive Billionaire Analysis Dashboard" style="max-width: 100%; height: auto;">
         </div>
-        <p><em>Live website: Coming soon.</em></p>
         <div class="analytics-insight">
           <p>
-            <strong>Analytical Insight:</strong> With growing awareness of mental health and creative expression, research shows a significant rise in engagement for innovative, artistic approaches to emotional support.
-            <a href="https://psychiatryonline.org" target="_blank">PSYCHIATRYONLINE.ORG</a>
+            <strong>Key Findings:</strong> Analysis reveals technology and finance sectors dominate wealth concentration, with significant representation from APAC and EMEA regions. The dashboard enables dynamic filtering by region, gender, and self-made status, providing comprehensive insights into global wealth distribution patterns.
           </p>
           <div class="chart-container">
-            <canvas id="psychChatbotChart"></canvas>
+            <canvas id="billionaireChart"></canvas>
           </div>
         </div>
-      </div>
+      </section>
       
-      <!-- Wisdom Wear Project -->
-      <div class="project">
-        <h3><a href="https://wisdomwear.netlify.app/" target="_blank">Wisdom Wear</a></h3>
-        <p class="guide-link">
-          Guide: GitHub link: 
-          <a href="https://github.com/anassriad/anassriad.github.io" target="_blank">
-            https://github.com/anassriad/anassriad.github.io
-          </a>
-        </p>
-        <p>
-          Wisdom Wear is an online store selling totebags featuring unique quotes from wise and inspiring individuals. The site categorizes quotes into Mindset, Philosophy, Wisdom, Growth, and Legacy. Currently, it focuses on totebags, with plans to expand into additional apparel.
-        </p>
-        <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, Netlify</p>
-        <p class="screenshot-guide">Click on the images to enlarge them for a better view.</p>
-        <!-- Screenshot Gallery for Wisdom Wear -->
-         <div class="project-screenshots">
-          <img src="WISDOM1.jpg" alt="Wisdom Wear">
-          <img src="WISDOM3.jpg" alt="Wisdom Wear">
-          <img src="WISDOM2.jpg" alt="Wisdom Wear">
-        </div>
-        <p><a href="https://wisdomwear.netlify.app/" target="_blank">Visit Live Website</a></p>
-        <div class="analytics-insight">
+      <!-- Other Projects Section -->
+      <section id="projects">
+        <h2>Other Projects</h2>
+        <hr class="project-divider">
+        <!-- Project: Beverage Sales Dashboard -->
+        <section class="project-section">
+          <h3>Data Analytics Project: Beverage Sales Dashboard (2025)</h3>
           <p>
-            <strong>Analytical Insight:</strong> E-commerce trends show that niche products like custom totebags can boost conversion rates by 20-25% when targeted effectively.
+            Designed an interactive Power BI dashboard to analyze beverage sales performance across different states and months. This dashboard provides insights into revenue distribution, units sold, and price per unit for major beverage brands.
           </p>
-          <div class="chart-container">
-            <canvas id="wisdomWearChart"></canvas>
+          <p>
+            <strong>Key Metrics:</strong>
+          </p>
+          <ul>
+            <li><strong>Total Revenue:</strong> 1.92M</li>
+            <li><strong>Units Sold:</strong> 3.98M</li>
+            <li><strong>Average Price per Unit:</strong> 0.47</li>
+          </ul>
+          <p>
+            <a href="https://drive.google.com/file/d/1AaOrn-0f2eWsbz6T_VRusct2bEDXEKmk/view?usp=drive_link" target="_blank">View Full Power BI Report</a>
+          </p>
+          <p class="screenshot-guide">Click on the image to enlarge it for a better view.</p>
+          <div class="project-screenshots">
+            <img src="beverage sales.jpg" alt="Interactive Beverage Sales Dashboard" style="max-width: 100%; height: auto;">
           </div>
-        </div>
-      </div>
-      
-      <!-- Water Scarcity Project -->      
-      <div class="project">
-        <section id="water-scarcity">
+          <p>
+            <strong>Key Insights:</strong> The dashboard showcases beverage sales trends over time, regional revenue distribution, and price analysis. The interactive filters allow dynamic exploration of different beverage brands and time periods, helping businesses optimize sales strategies.
+          </p>
+        </section>
+        <hr class="project-divider">
+        <!-- Project: SAKINA AI -->
+        <section class="project-section">
+          <h3><a href="https://github.com/anassriad/psychology-chatbot" target="_blank">SAKINA AI</a></h3>
+          <p class="guide-link">
+            Guide: GitHub link:
+            <a href="https://github.com/anassriad/psychology-chatbot" target="_blank">https://github.com/anassriad/psychology-chatbot</a>
+          </p>
+          <p>
+            SAKINA AI is a unique fusion of psychology and art. This AI-powered tool offers personalized mental health insights using natural language processing. With the innovative "See Your Mood" button, it analyzes the last 10 messages exchanged between the user and the bot to create a custom mood painting in the style of Salvador Dalí.
+          </p>
+          <p><strong>Technologies used:</strong> Node.js, Express, OpenAI, JavaScript, NLP</p>
+          <p class="screenshot-guide">Click on the images to enlarge them for a better view.</p>
+          <div class="project-screenshots">
+            <img src="FRONTWEB.jpg" alt="SAKINA AI">
+            <img src="mood_image1.png" alt="SAKINA AI">
+            <img src="mood_image2.png" alt="SAKINA AI">
+            <img src="mood_image3.png" alt="SAKINA AI">
+            <img src="mood_image4.png" alt="SAKINA AI">
+            <img src="mood_image5.png" alt="SAKINA AI">
+          </div>
+          <p><em>Live website: Coming soon.</em></p>
+          <div class="analytics-insight">
+            <p>
+              <strong>Analytical Insight:</strong> With growing awareness of mental health and creative expression, research shows a significant rise in engagement for innovative, artistic approaches to emotional support.
+              <a href="https://psychiatryonline.org" target="_blank">PSYCHIATRYONLINE.ORG</a>
+            </p>
+            <div class="chart-container">
+              <canvas id="psychChatbotChart"></canvas>
+            </div>
+          </div>
+        </section>
+        <hr class="project-divider">
+        <!-- Project: Wisdom Wear -->
+        <section class="project-section">
+          <h3><a href="https://wisdomwear.netlify.app/" target="_blank">Wisdom Wear</a></h3>
+          <p class="guide-link">
+            Guide: GitHub link:
+            <a href="https://github.com/anassriad/anassriad.github.io" target="_blank">https://github.com/anassriad/anassriad.github.io</a>
+          </p>
+          <p>
+            Wisdom Wear is an online store selling totebags featuring unique quotes from wise and inspiring individuals. The site categorizes quotes into Mindset, Philosophy, Wisdom, Growth, and Legacy. Currently, it focuses on totebags, with plans to expand into additional apparel.
+          </p>
+          <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, Netlify</p>
+          <p class="screenshot-guide">Click on the images to enlarge them for a better view.</p>
+          <div class="project-screenshots">
+            <img src="WISDOM1.jpg" alt="Wisdom Wear">
+            <img src="WISDOM3.jpg" alt="Wisdom Wear">
+            <img src="WISDOM2.jpg" alt="Wisdom Wear">
+          </div>
+          <p><a href="https://wisdomwear.netlify.app/" target="_blank">Visit Live Website</a></p>
+          <div class="analytics-insight">
+            <p>
+              <strong>Analytical Insight:</strong> E-commerce trends show that niche products like custom totebags can boost conversion rates by 20-25% when targeted effectively.
+            </p>
+            <div class="chart-container">
+              <canvas id="wisdomWearChart"></canvas>
+            </div>
+          </div>
+        </section>
+        <hr class="project-divider">
+        <!-- Project: Water Scarcity -->
+        <section class="project-section">
           <h2>Water Scarcity Analytics in Morocco</h2>
           <p>
             Water scarcity is a critical issue in Morocco, affecting agriculture, urban supply, and ecosystems. Recent data indicates a gradual decrease in per capita water availability driven by climate change and increased demand.
           </p>
-          <a href="https://www.canva.com/design/DAGX2JSvZBA/9O4uDk5_sEmxGulZ29c53w/edit?ui=eyJIIjp7IkEiOnRydWV9fQ" target="_blank">
-            View the Project Slide Deck</a><br/>
-          <hr/>
+          <p>
+            <a href="https://www.canva.com/design/DAGX2JSvZBA/9O4uDk5_sEmxGulZ29c53w/edit?ui=eyJIIjp7IkEiOnRydWV9fQ" target="_blank">
+              View the Project Slide Deck
+            </a>
+          </p>
+          <hr class="project-divider">
           <p><strong>Analytical Insight:</strong></p>
           <div class="chart-container">
             <canvas id="waterScarcityChart"></canvas>
           </div>
         </section>
-      </div>
-      
-      <!-- Marathon Morocco Project -->      
-      <div class="project">
-        <h3><a href="https://github.com/anassriad/marathon-morocco" target="_blank">Marathon Morocco</a></h3>
-        <p class="guide-link">
-          Guide: GitHub link: 
-          <a href="https://github.com/anassriad/marathon-morocco" target="_blank">
-            https://github.com/anassriad/marathon-morocco
-          </a>
-        </p>
-        <p>
-          A platform for organizing and tracking marathon events in Morocco, designed to enhance the experience for both organizers and participants.
-        </p>
-        <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, Node.js</p>
-        <p class="screenshot-guide">Click on the image to enlarge it for a better view.</p>
-        <!-- Screenshot Gallery for Marathon Morocco -->
-         <div class="project-screenshots">
-          <img src="marathon.jpg" alt="Marathon Morocco">
-        </div>
-        <p><a href="https://anassriad.github.io/marathon-morocco/" target="_blank">Visit Live Website</a></p>
-        <div class="analytics-insight">
-          <p>
-            <strong>Analytical Insight:</strong> With a steady 15% annual growth in marathon participation, our platform meets a growing need among fitness enthusiasts.
+        <hr class="project-divider">
+        <!-- Project: Marathon Morocco -->
+        <section class="project-section">
+          <h3><a href="https://github.com/anassriad/marathon-morocco" target="_blank">Marathon Morocco</a></h3>
+          <p class="guide-link">
+            Guide: GitHub link:
+            <a href="https://github.com/anassriad/marathon-morocco" target="_blank">https://github.com/anassriad/marathon-morocco</a>
           </p>
-          <div class="chart-container">
-            <canvas id="marathonChart"></canvas>
+          <p>
+            A platform for organizing and tracking marathon events in Morocco, designed to enhance the experience for both organizers and participants.
+          </p>
+          <p><strong>Technologies used:</strong> HTML, CSS, JavaScript, Node.js</p>
+          <p class="screenshot-guide">Click on the image to enlarge it for a better view.</p>
+          <div class="project-screenshots">
+            <img src="marathon.jpg" alt="Marathon Morocco">
           </div>
-        </div>
-      </div>
-      
-    </section>
+          <p><a href="https://anassriad.github.io/marathon-morocco/" target="_blank">Visit Live Website</a></p>
+          <div class="analytics-insight">
+            <p>
+              <strong>Analytical Insight:</strong> With a steady 15% annual growth in marathon participation, our platform meets a growing need among fitness enthusiasts.
+            </p>
+            <div class="chart-container">
+              <canvas id="marathonChart"></canvas>
+            </div>
+          </div>
+        </section>
+        <hr class="project-divider">
+      </section>
+    </div>
     
-  </div>
+    <!-- Modal for Image Pop-Up -->
+    <div id="imageModal" class="modal">
+      <span class="modal-close">&times;</span>
+      <img class="modal-content" id="modalImage" />
+      <div id="modalCaption" style="color:#fff; text-align:center; padding:10px;"></div>
+    </div>
+  </main>
   
-  <!-- Modal for Image Pop-Up -->
-  <div id="imageModal" class="modal">
-    <span class="modal-close">&times;</span>
-    <img class="modal-content" id="modalImage">
-    <div id="modalCaption" style="color:#fff; text-align:center; padding:10px;"></div>
-  </div>
-  
-  <!-- Chart.js Scripts -->
+  <!-- Chart and Modal Scripts -->
   <script>
-    // Modal Functionality for Project Screenshots
+    // Modal functionality for project screenshots
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const modalCaption = document.getElementById('modalCaption');
     const closeBtn = document.getElementsByClassName('modal-close')[0];
     
-    // Add click event to all images in project-screenshots
     document.querySelectorAll('.project-screenshots img').forEach(img => {
       img.addEventListener('click', function() {
         modal.style.display = 'block';
@@ -506,9 +508,9 @@ if(billionaireCtx) {
       modal.style.display = 'none';
     }
     
-    // Chrome Extension Graph
+    // Chrome Extension Chart
     const chromeExtensionCtx = document.getElementById('chromeExtensionChart')?.getContext('2d');
-    if(chromeExtensionCtx) {
+    if (chromeExtensionCtx) {
       new Chart(chromeExtensionCtx, {
         type: 'bar',
         data: {
@@ -534,115 +536,156 @@ if(billionaireCtx) {
       });
     }
     
-    // SAKINA AI Chart
-    const psychChatbotCtx = document.getElementById('psychChatbotChart').getContext('2d');
-    new Chart(psychChatbotCtx, {
-      type: 'line',
-      data: {
-        labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
-        datasets: [{
-          label: 'Usage (%)',
-          data: [5, 10, 15, 22, 22, 22],
-          fill: false,
-          borderColor: 'rgba(0, 119, 204, 1)',
-          tension: 0.1
-        },{
-          label: 'Interest (%)',
-          data: [10, 20, 30, 47, 47, 47],
-          fill: false,
-          borderColor: 'rgba(255, 99, 132, 1)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: 'Percentage (%)' }
+    // Billionaire Industry Distribution Chart
+    const billionaireCtx = document.getElementById('billionaireChart')?.getContext('2d');
+    if (billionaireCtx) {
+      new Chart(billionaireCtx, {
+        type: 'bar',
+        data: {
+          labels: ['Technology', 'Finance', 'Fashion & Retail', 'Automotive', 'Manufacturing', 'Food & Beverage', 'Energy', 'Healthcare'],
+          datasets: [{
+            label: 'Industry Distribution',
+            data: [1500000, 1000000, 500000, 400000, 400000, 300000, 250000, 200000],
+            backgroundColor: 'rgba(14, 165, 233, 0.6)',
+            borderColor: 'rgba(14, 165, 233, 0.8)',
+            borderWidth: 1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: 'Net Worth Distribution (Millions USD)' }
+            }
+          },
+          plugins: {
+            title: {
+              display: true,
+              text: 'Wealth Distribution by Industry Sector'
+            }
           }
         }
-      }
-    });
+      });
+    }
     
-    // Wisdom Wear Chart (Pie Chart Example)
-    const wisdomWearCtx = document.getElementById('wisdomWearChart').getContext('2d');
-    new Chart(wisdomWearCtx, {
-      type: 'pie',
-      data: {
-        labels: ['Mindset', 'Philosophy', 'Wisdom', 'Growth', 'Legacy'],
-        datasets: [{
-          label: 'Category Distribution',
-          data: [20, 15, 30, 25, 10],
-          backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)'
-          ],
-          borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)'
-          ],
-          borderWidth: 1
-        }]
-      },
-      options: { responsive: true }
-    });
+    // SAKINA AI Chart
+    const psychChatbotCtx = document.getElementById('psychChatbotChart')?.getContext('2d');
+    if (psychChatbotCtx) {
+      new Chart(psychChatbotCtx, {
+        type: 'line',
+        data: {
+          labels: ['2018', '2019', '2020', '2021', '2022', '2023'],
+          datasets: [{
+            label: 'Usage (%)',
+            data: [5, 10, 15, 22, 22, 22],
+            fill: false,
+            borderColor: 'rgba(14, 165, 233, 1)',
+            tension: 0.1
+          }, {
+            label: 'Interest (%)',
+            data: [10, 20, 30, 47, 47, 47],
+            fill: false,
+            borderColor: 'rgba(255, 99, 132, 1)',
+            tension: 0.1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: 'Percentage (%)' }
+            }
+          }
+        }
+      });
+    }
+    
+    // Wisdom Wear Chart (Pie Chart)
+    const wisdomWearCtx = document.getElementById('wisdomWearChart')?.getContext('2d');
+    if (wisdomWearCtx) {
+      new Chart(wisdomWearCtx, {
+        type: 'pie',
+        data: {
+          labels: ['Mindset', 'Philosophy', 'Wisdom', 'Growth', 'Legacy'],
+          datasets: [{
+            label: 'Category Distribution',
+            data: [20, 15, 30, 25, 10],
+            backgroundColor: [
+              'rgba(255, 99, 132, 0.6)',
+              'rgba(54, 162, 235, 0.6)',
+              'rgba(255, 206, 86, 0.6)',
+              'rgba(75, 192, 192, 0.6)',
+              'rgba(153, 102, 255, 0.6)'
+            ],
+            borderColor: [
+              'rgba(255, 99, 132, 1)',
+              'rgba(54, 162, 235, 1)',
+              'rgba(255, 206, 86, 1)',
+              'rgba(75, 192, 192, 1)',
+              'rgba(153, 102, 255, 1)'
+            ],
+            borderWidth: 1
+          }]
+        },
+        options: { responsive: true }
+      });
+    }
     
     // Water Scarcity Chart
-    const waterScarcityCtx = document.getElementById('waterScarcityChart').getContext('2d');
-    new Chart(waterScarcityCtx, {
-      type: 'line',
-      data: {
-        labels: ['2010', '2012', '2014', '2016', '2018', '2020', '2022'],
-        datasets: [{
-          label: 'Water Availability (m³ per capita)',
-          data: [600, 580, 560, 540, 520, 500, 480],
-          fill: false,
-          borderColor: 'rgba(0, 150, 136, 1)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: false,
-            title: { display: true, text: 'm³ per capita' }
+    const waterScarcityCtx = document.getElementById('waterScarcityChart')?.getContext('2d');
+    if (waterScarcityCtx) {
+      new Chart(waterScarcityCtx, {
+        type: 'line',
+        data: {
+          labels: ['2010', '2012', '2014', '2016', '2018', '2020', '2022'],
+          datasets: [{
+            label: 'Water Availability (m³ per capita)',
+            data: [600, 580, 560, 540, 520, 500, 480],
+            fill: false,
+            borderColor: 'rgba(0, 150, 136, 1)',
+            tension: 0.1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: false,
+              title: { display: true, text: 'm³ per capita' }
+            }
           }
         }
-      }
-    });
+      });
+    }
     
     // Marathon Morocco Chart
-    const marathonCtx = document.getElementById('marathonChart').getContext('2d');
-    new Chart(marathonCtx, {
-      type: 'line',
-      data: {
-        labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
-        datasets: [{
-          label: 'Marathon Participation Rate (%)',
-          data: [30, 32, 35, 38, 40, 42, 45, 50, 55, 60, 65],
-          fill: false,
-          borderColor: 'rgba(0, 119, 204, 1)',
-          tension: 0.1
-        }]
-      },
-      options: {
-        responsive: true,
-        scales: {
-          y: {
-            beginAtZero: true,
-            title: { display: true, text: 'Participation Rate (%)' }
+    const marathonCtx = document.getElementById('marathonChart')?.getContext('2d');
+    if (marathonCtx) {
+      new Chart(marathonCtx, {
+        type: 'line',
+        data: {
+          labels: ['2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022', '2023'],
+          datasets: [{
+            label: 'Marathon Participation Rate (%)',
+            data: [30, 32, 35, 38, 40, 42, 45, 50, 55, 60, 65],
+            fill: false,
+            borderColor: 'rgba(14, 165, 233, 1)',
+            tension: 0.1
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: {
+            y: {
+              beginAtZero: true,
+              title: { display: true, text: 'Participation Rate (%)' }
+            }
           }
         }
-      }
-    });
+      });
+    }
   </script>
 </body>
 </html>
