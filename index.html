@@ -3,141 +3,391 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anass Riad - Welcome</title>
-  <!-- Import Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet" />
+  <title>Anass Riad - Data Analyst Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* Basic Reset */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
     html, body {
-      height: 100%;
-      font-family: 'Lato', sans-serif;
-      background: #f4f7fa;
-      color: #333;
-      scroll-behavior: smooth; /* Enables smooth scrolling */
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      color: #1e293b;
+      min-height: 100vh;
+      overflow-y: auto;
       overflow-x: hidden;
     }
-    /* Landing Section Styling */
-    .landing {
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+    }
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
       display: flex;
-      flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100vh;
-      text-align: center;
-      position: relative;
-      padding: 20px;
+      justify-content: space-between;
     }
-    .landing h1 {
+    .logo {
       font-family: 'Playfair Display', serif;
-      font-size: 3.5rem;
-      color: #0077cc;
-      margin-bottom: 1rem;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
-    .landing p {
-      font-size: 1.25rem;
-      margin-bottom: 2rem;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-      animation-delay: 0.5s;
-    }
-    /* Navigation Styles */
     nav ul {
       list-style: none;
       display: flex;
-      gap: 20px;
-      opacity: 0;
-      animation: fadeIn 2s forwards;
-      animation-delay: 1s;
+      gap: 2rem;
     }
     nav ul li a {
       text-decoration: none;
-      font-size: 1.2rem;
-      color: #0077cc;
-      border: 2px solid transparent;
+      color: #0f172a;
+      font-weight: 500;
       padding: 0.5rem 1rem;
+      border-radius: 6px;
       transition: all 0.3s ease;
     }
     nav ul li a:hover {
-      border-color: #0077cc;
-      color: #005fa3;
+      background: #e0f2fe;
+      color: #0ea5e9;
     }
-    /* Scroll Down Indicator */
-    .scroll-down {
-      position: absolute;
-      bottom: 20px;
-      font-size: 1rem;
-      color: #0077cc;
-      cursor: pointer;
-      animation: bounce 2s infinite;
+    main {
+      padding-top: 100px; /* Prevent header overlap */
+      min-height: calc(100vh - 76px);
+      padding-bottom: 2rem;
     }
-    /* Additional Main Content Section */
-    .main-content {
-      padding: 50px 20px;
-      background: #fff;
-      text-align: center;
-    }
-    .main-content h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2.5rem;
-      color: #0077cc;
-      margin-bottom: 1rem;
-    }
-    .main-content p {
-      font-size: 1.2rem;
-      max-width: 800px;
+    .dashboard-container {
+      max-width: 1400px;
+      width: 95%;
       margin: 0 auto;
-      line-height: 1.6;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 2rem;
     }
-    /* Animations */
-    @keyframes fadeIn {
-      to {
-        opacity: 1;
+    .profile-section {
+      padding: 2rem;
+      text-align: center;
+      border-right: 1px solid #e2e8f0;
+    }
+    .profile-section img {
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid #e0f2fe;
+      margin-bottom: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .profile-section img:hover {
+      transform: scale(1.05);
+      border-color: #0ea5e9;
+    }
+    .profile-section h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    .profile-section p {
+      color: #64748b;
+      line-height: 1.6;
+      margin-bottom: 2rem;
+    }
+    .expertise-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .expertise-item {
+      text-align: center;
+      padding: 1rem;
+      background: #f8fafc;
+      border-radius: 12px;
+      transition: all 0.3s ease;
+    }
+    .expertise-item:hover {
+      transform: translateY(-5px);
+      background: #e0f2fe;
+    }
+    .expertise-item img {
+      width: 50px;
+      height: 50px;
+      margin-bottom: 0.5rem;
+    }
+    .expertise-item p {
+      font-weight: 500;
+      color: #0f172a;
+    }
+    .skills-section {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+      padding: 1rem;
+    }
+    .skill-card {
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 1.5rem;
+      transition: transform 0.3s ease;
+    }
+    .skill-card:hover {
+      transform: translateY(-5px);
+    }
+    .chart-container {
+      margin-top: 1rem;
+      position: relative;
+      height: 200px;
+    }
+    /* Scroll to top button */
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0ea5e9;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    .scroll-top.visible {
+      opacity: 1;
+    }
+    .scroll-top:hover {
+      background: #2563eb;
+    }
+    @media (max-width: 1024px) {
+      .dashboard-container {
+        grid-template-columns: 1fr;
+      }
+      .profile-section {
+        border-right: none;
+        border-bottom: 1px solid #e2e8f0;
       }
     }
-    @keyframes bounce {
-      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-      40% { transform: translateY(-10px); }
-      60% { transform: translateY(-5px); }
+    @media (max-width: 768px) {
+      .skills-section {
+        grid-template-columns: 1fr;
+      }
+      nav ul {
+        gap: 1rem;
+      }
+      .dashboard-container {
+        width: 90%;
+        padding: 1rem;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="landing">
-    <h1>Welcome to Anass Riad's World</h1>
-    <p>Discover the fusion of data, law, and technology. Dive in to explore more!</p>
-    <nav>
-      <ul>
-        <li><a href="bio.html">Bio</a></li>
-        <li><a href="portfolio.html">Portfolio</a></li>
-        <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
-      </ul>
-    </nav>
-    <!-- When clicked, the scroll down indicator will take the user to the next section -->
-    <div class="scroll-down" id="scrollDown">Scroll Down</div>
-  </div>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Anass Riad</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <!-- Main Content Section: Additional content appears here -->
-  <div class="main-content" id="mainContent">
-    <h2>Explore More</h2>
-    <p>
-      Here you can find more about my work, projects, and vision.
-      Use the navigation above to dive into the details of my Bio, Portfolio, and Elevator Pitch.
-      Thank you for visiting!
-    </p>
-  </div>
+  <main>
+    <div class="dashboard-container">
+      <!-- Profile Section -->
+      <div class="profile-section">
+        <img src="anassriad.jpg" alt="Anass Riad" />
+        <h1>Data Analyst &amp; Insights Specialist</h1>
+        <p>Transforming complex data into actionable insights through advanced analytics and visualization techniques. Specialized in SQL, Excel, and business intelligence tools.</p>
+        <div class="expertise-grid">
+          <div class="expertise-item">
+            <img src="https://img.icons8.com/ios/452/sql.png" alt="SQL" />
+            <p>SQL</p>
+          </div>
+          <div class="expertise-item">
+            <img src="https://img.icons8.com/ios/452/microsoft-excel-2019.png" alt="Excel" />
+            <p>Excel</p>
+          </div>
+          <div class="expertise-item">
+            <img src="https://img.icons8.com/ios/452/business-report.png" alt="Analytics" />
+            <p>Analytics</p>
+          </div>
+        </div>
+      </div>
 
+      <!-- Skills Section with Charts -->
+      <div class="skills-section">
+        <div class="skill-card">
+          <h3>SQL Proficiency</h3>
+          <div class="chart-container">
+            <canvas id="sqlChart"></canvas>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Excel Expertise</h3>
+          <div class="chart-container">
+            <canvas id="excelChart"></canvas>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Projects Completed</h3>
+          <div class="chart-container">
+            <canvas id="projectsChart"></canvas>
+          </div>
+        </div>
+        <div class="skill-card">
+          <h3>Client Satisfaction</h3>
+          <div class="chart-container">
+            <canvas id="satisfactionChart"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scroll to top button -->
+  <button class="scroll-top">↑</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
-    // If you want the scroll down indicator to scroll smoothly to the main content
-    document.getElementById('scrollDown').addEventListener('click', function() {
-      document.getElementById('mainContent').scrollIntoView({ behavior: 'smooth' });
+    // Modern color palette
+    const colors = {
+      primary: '#0ea5e9',
+      background: 'rgba(224, 242, 254, 0.5)',
+      border: 'rgba(14, 165, 233, 0.8)'
+    };
+
+    // Scroll to top functionality
+    const scrollButton = document.querySelector('.scroll-top');
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.add('visible');
+      } else {
+        scrollButton.classList.remove('visible');
+      }
     });
+    scrollButton.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // SQL Proficiency Chart (Doughnut)
+    const sqlCtx = document.getElementById('sqlChart')?.getContext('2d');
+    if (sqlCtx) {
+      new Chart(sqlCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Proficient', 'Remaining'],
+          datasets: [{
+            data: [85, 15],
+            backgroundColor: [colors.primary, colors.background],
+            borderColor: [colors.border, colors.border],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (context) => context.parsed + '%' } }
+          }
+        }
+      });
+    }
+
+    // Excel Expertise Chart (Doughnut)
+    const excelCtx = document.getElementById('excelChart')?.getContext('2d');
+    if (excelCtx) {
+      new Chart(excelCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Proficient', 'Remaining'],
+          datasets: [{
+            data: [90, 10],
+            backgroundColor: [colors.primary, colors.background],
+            borderColor: [colors.border, colors.border],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (context) => context.parsed + '%' } }
+          }
+        }
+      });
+    }
+
+    // Projects Completed Chart (Doughnut: assuming 80% completed)
+    const projectsCtx = document.getElementById('projectsChart')?.getContext('2d');
+    if (projectsCtx) {
+      new Chart(projectsCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Completed', 'Remaining'],
+          datasets: [{
+            data: [80, 20],
+            backgroundColor: [colors.primary, colors.background],
+            borderColor: [colors.border, colors.border],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (context) => context.parsed + '%' } }
+          }
+        }
+      });
+    }
+
+    // Client Satisfaction Chart (Doughnut)
+    const satisfactionCtx = document.getElementById('satisfactionChart')?.getContext('2d');
+    if (satisfactionCtx) {
+      new Chart(satisfactionCtx, {
+        type: 'doughnut',
+        data: {
+          labels: ['Satisfied', 'Unsatisfied'],
+          datasets: [{
+            data: [95, 5],
+            backgroundColor: [colors.primary, colors.background],
+            borderColor: [colors.border, colors.border],
+            borderWidth: 1
+          }]
+        },
+        options: {
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: (context) => context.parsed + '%' } }
+          }
+        }
+      });
+    }
   </script>
 </body>
 </html>
