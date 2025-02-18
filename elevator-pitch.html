@@ -1,149 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Anass Riad - Elevator Pitch</title>
-  <!-- Import Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Anass Riad - Data Analyst</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <style>
-    /* Reset and Base Styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
     }
-    body {
-      font-family: 'Lato', sans-serif;
-      background: #f4f7fa;
-      color: #333;
-      line-height: 1.6;
+
+    html, body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+      color: #1e293b;
+      min-height: 100vh;
+      overflow-y: auto;
+      overflow-x: hidden;
     }
-    /* Navigation */
-    nav {
-      background: #ffffff;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      position: sticky;
+
+    header {
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
       z-index: 1000;
     }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
     nav ul {
       list-style: none;
       display: flex;
-      justify-content: center;
-      padding: 1rem;
+      gap: 2rem;
     }
-    nav ul li { margin: 0 15px; }
+
     nav ul li a {
       text-decoration: none;
-      color: #0077cc;
-      font-weight: bold;
+      color: #0f172a;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background: #e0f2fe;
+      color: #0ea5e9;
+    }
+
+    main {
+      padding-top: 100px;
+      min-height: calc(100vh - 76px);
+      padding-bottom: 2rem;
+    }
+
+    .dashboard-container {
+      max-width: 1400px;
+      width: 95%;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    .pitch-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .pitch-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .pitch-header h3 {
+      font-size: 1.5rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info a {
+      color: #0ea5e9;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
       transition: color 0.3s ease;
     }
-    nav ul li a:hover { color: #005fa3; }
-    /* Container */
-    .container {
-      max-width: 1200px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-    }
-    /* Header */
-    header {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    header h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 3rem;
-      color: #0077cc;
-      margin-bottom: 0.5rem;
-    }
-    header h3 {
-      font-size: 1.5rem;
-      color: #555;
-      margin-bottom: 1rem;
-    }
-    .contact-info p {
-      font-size: 1.1rem;
-      margin: 0.25rem 0;
-    }
-    .contact-info a {
-      color: #0077cc;
-      text-decoration: none;
-    }
+
     .contact-info a:hover {
-      text-decoration: underline;
+      color: #2563eb;
     }
-    /* Elevator Pitch Section */
-    section {
+
+    .video-container {
+      margin: 2rem 0;
+      background: #f8fafc;
+      border-radius: 12px;
+      padding: 2rem;
+      text-align: center;
+    }
+
+    .video-placeholder {
+      width: 100%;
+      height: 400px;
+      background: #e2e8f0;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #64748b;
+      font-size: 1.1rem;
       margin-bottom: 2rem;
     }
-    section h2 {
-      font-family: 'Playfair Display', serif;
-      font-size: 2rem;
-      color: #0077cc;
-      border-bottom: 2px solid #0077cc;
-      padding-bottom: 0.5rem;
-      margin-bottom: 1rem;
+
+    .video-description {
+      color: #64748b;
+      line-height: 1.6;
+      font-size: 1.1rem;
+      max-width: 800px;
+      margin: 0 auto;
     }
-    section p {
-      margin-bottom: 1rem;
-      font-size: 1.15rem;
+
+    .scroll-top {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #0ea5e9;
+      color: white;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      border: none;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
-    /* Responsive */
+
+    .scroll-top.visible {
+      opacity: 1;
+    }
+
+    .scroll-top:hover {
+      background: #2563eb;
+    }
+
+    @media (max-width: 1024px) {
+      .dashboard-container {
+        width: 90%;
+      }
+    }
+
     @media (max-width: 768px) {
-      .container {
-        margin: 1rem;
+      nav ul {
+        gap: 1rem;
+      }
+
+      .dashboard-container {
         padding: 1rem;
       }
-      nav ul {
-        flex-direction: column;
+
+      .video-placeholder {
+        height: 250px;
       }
-      nav ul li {
-        margin: 10px 0;
+
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
       }
     }
   </style>
 </head>
 <body>
-  <!-- Navigation -->
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="bio.html">Bio</a></li>
-      <li><a href="portfolio.html">Portfolio</a></li>
-      <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
-    </ul>
-  </nav>
-  
-  <div class="container">
-    <!-- Header Section -->
-    <header>
-      <h1>Anass Riad</h1>
-      <h3>Data Analyst & IT Learner</h3>
-      <div class="contact-info">
-        <p><strong>Email:</strong> anassriad445@gmail.com</p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/anassriad" target="_blank">github.com/anassriad</a></p>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Anass Riad</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="dashboard-container">
+      <div class="pitch-header">
+        <h1>Anass Riad</h1>
+        <h3>Data Analyst &amp; Insights Specialist</h3>
+        <div class="contact-info">
+          <a href="mailto:anassriad445@gmail.com">📧 anassriad445@gmail.com</a>
+          <a href="https://github.com/anassriad" target="_blank">📚 github.com/anassriad</a>
+        </div>
       </div>
-    </header>
+
+      <div class="video-container">
+        <div class="video-placeholder">
+          [Your Video Will Appear Here]
+        </div>
+        <div class="video-description">
+          Hello! I'm Anass Riad, a Data Analyst passionate about transforming complex data into actionable insights. In this video, I'll walk you through my approach to data analysis, showcase some of my key projects, and share how I leverage data to drive business decisions. Join me as I demonstrate how I turn raw data into compelling stories and valuable business solutions.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <button class="scroll-top">↑</button>
+
+  <script>
+    const scrollButton = document.querySelector('.scroll-top');
     
-    <!-- Elevator Pitch Section -->
-    <section id="elevator-pitch">
-      <h2>Elevator Pitch</h2>
-      <p>
-        I am passionately driven by data—its patterns, insights, and the stories it tells. Everywhere I look, data is the pulse of our world, from everyday experiences to groundbreaking innovations.
-      </p>
-      <p>
-        This obsession has led me to create projects that transform raw numbers into meaningful solutions. I see data as a lens that not only explains but also inspires change. Whether I’m uncovering trends in health, sports, or social behavior, I craft projects that harness the power of data to drive smarter decisions and create impactful, user-centric solutions.
-      </p>
-      <p>
-        My journey is fueled by curiosity, creativity, and a commitment to making data accessible and engaging. I invite you to join me on this journey as we explore, innovate, and reshape our world—one data point at a time.
-      </p>
-      <p><strong>Let’s connect and build a future where data drives passion and innovation!</strong></p>
-    </section>
-  </div>
+    window.addEventListener('scroll', () => {
+      if (window.pageYOffset > 300) {
+        scrollButton.classList.add('visible');
+      } else {
+        scrollButton.classList.remove('visible');
+      }
+    });
+    
+    scrollButton.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+  </script>
 </body>
 </html>
