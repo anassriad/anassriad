@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Anass Riad - Data Analyst</title>
+  <title>Anass Riad - Elevator Pitch</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     * {
@@ -19,6 +19,111 @@
       min-height: 100vh;
       overflow-y: auto;
       overflow-x: hidden;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08);
+      z-index: 1000;
+    }
+
+    .nav-container {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 1rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2rem;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #0f172a;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
+
+    nav ul li a:hover {
+      background: #e0f2fe;
+      color: #0ea5e9;
+    }
+
+    main {
+      padding-top: 100px;
+      min-height: calc(100vh - 76px);
+      padding-bottom: 2rem;
+    }
+
+    .dashboard-container {
+      max-width: 1400px;
+      width: 95%;
+      margin: 0 auto;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+      padding: 2rem;
+    }
+
+    .elevator-header {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .elevator-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.5rem;
+      background: linear-gradient(45deg, #0ea5e9, #2563eb);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 1rem;
+    }
+
+    .elevator-header h3 {
+      font-size: 1.5rem;
+      color: #64748b;
+      margin-bottom: 1.5rem;
+    }
+
+    .contact-info {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .contact-info a {
+      color: #0ea5e9;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: color 0.3s ease;
+    }
+
+    .contact-info a:hover {
+      color: #2563eb;
     }
 
     .video-container {
@@ -54,22 +159,67 @@
       max-width: 800px;
       margin: 1rem auto 0;
     }
+
+    @media (max-width: 1024px) {
+      .dashboard-container {
+        width: 90%;
+      }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        gap: 1rem;
+      }
+
+      .dashboard-container {
+        padding: 1rem;
+      }
+
+      .contact-info {
+        flex-direction: column;
+        gap: 1rem;
+        align-items: center;
+      }
+    }
   </style>
 </head>
 <body>
+  <header>
+    <div class="nav-container">
+      <div class="logo">Anass Riad</div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="bio.html">Bio</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="elevator-pitch.html">Elevator Pitch</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
   <main>
     <div class="dashboard-container">
+      <div class="elevator-header">
+        <h1>Anass Riad</h1>
+        <h3>Elevator Pitch</h3>
+      </div>
+
       <div class="video-container">
         <div class="video-wrapper">
-          <!-- Update the path to your correctly named video file -->
           <video controls>
-            <source src="videos/DataAnalyst.mp4" type="video/mp4" />
+            <source src="ElevatorPitch.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
         </div>
         <div class="video-description">
-          Hello! I'm Anass Riad, a Data Analyst passionate about transforming complex data into actionable insights. In this video, I'll walk you through my approach to data analysis, showcase some of my key projects, and share how I leverage data to drive business decisions. 
+          In this video, I introduce myself and explain how I leverage data analytics to make informed decisions that drive business growth and innovation.
         </div>
+      </div>
+
+      <div class="contact-info">
+        <a href="mailto:anassriad445@gmail.com">📧 anassriad445@gmail.com</a>
+        <a href="https://github.com/anassriad" target="_blank">📚 github.com/anassriad</a>
       </div>
     </div>
   </main>
