@@ -137,8 +137,8 @@
     .video-wrapper {
       position: relative;
       width: 100%;
-      padding-top: 60%; /* 5:3 Aspect Ratio */
-      background: #e2e8f0;
+      padding-top: 60%;
+      background: #f1f5f9;
       border-radius: 12px;
       overflow: hidden;
     }
@@ -149,7 +149,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      border: none;
+      object-fit: cover;
     }
 
     .video-description {
@@ -208,7 +208,7 @@
       <div class="video-container">
         <div class="video-wrapper">
           <video controls>
-            <source src="ElevatorPitch.mp4" type="video/mp4" />
+            <source src="ElevatorPitch.mp4" type="video/mp4">
             Your browser does not support the video tag.
           </video>
         </div>
